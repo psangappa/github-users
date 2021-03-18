@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "github_users"
+version = "0.1.0"
+description = "An aiohttp application in Python 3.8 that makes asynchronous calls to github’s API concurrently to get users info."
+authors = ["Prabhuling"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pydantic = "^1.5"
+fastapi = ">=0.63.0,<1"
+aiohttp = "^3.7"
+uvicorn = ">=0.11.8,<1"
+
+[tool.poetry.scripts]
+start_api = "github_users.api.service:start_api"
+
+[build-system]
+requires = ["poetry-core>=1,<2"]
+build-backend = "poetry.core.masonry.api"
