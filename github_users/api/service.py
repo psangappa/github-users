@@ -4,6 +4,7 @@ from github_users.api.handlers.users import user_router
 from github_users.settings import settings
 from github_users import __version__
 from github_users.api.async_http_client import SingletonAiohttp
+from github_users.core.user_manager import UserManager
 
 
 class UserService(FastAPI):
@@ -25,6 +26,7 @@ class UserService(FastAPI):
 
             self.include_router(my_router)
         """
+        self.state.user_manager = UserManager(settings.github_api_url)
         prefix = "/api/v1"
         self.include_router(user_router, prefix=prefix)
 
