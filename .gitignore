@@ -7,3 +7,8 @@ __pycache__/
 
 # Other
 .idea
+
+# Unit test / coverage reports
+.coverage
+coverage.*
+junit_report.xml

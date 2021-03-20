@@ -13,6 +13,11 @@ fastapi = ">=0.63.0,<1"
 aiohttp = "^3.7"
 uvicorn = ">=0.11.8,<1"
 
+[tool.poetry.dev-dependencies]
+# for testing
+pytest = "^6.2.2"
+pytest-cov = "^2.11.1"
+
 [tool.poetry.scripts]
 start_api = "github_users.api.service:start_api"
 

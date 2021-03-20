@@ -1,5 +1,8 @@
 .PHONY: all virtualenv install-poetry install-dev clean dist-clean
 
+SRC_DIR=github_users
+TEST_DIR=tests
+
 PYTHON_VERSION=python3.8
 VIRTUALENV_DIR=${PWD}/env
 PIP=${VIRTUALENV_DIR}/bin/pip
@@ -21,6 +24,9 @@ install-poetry: virtualenv
 
 install-dev: install-poetry
 	${POETRY} install -vvv
+
+test:
+	${VIRTUALENV_DIR}/bin/pytest ${TEST_DIR} --cov ${SRC_DIR} --cov-report=xml\:coverage.xml
 
 clean:
 	rm -f .DS_Store .coverage
