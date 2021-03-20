@@ -68,6 +68,8 @@ class Users(BaseModel):
     List of users that was requested for.
     """
 
+    size: int = Field(description="Total number of users.")
+    missing: int = Field(description="Total number of users missing.")
     users: List[User] = Field(
         description="List of users requested for.", default=[]
     )
