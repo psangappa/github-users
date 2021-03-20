@@ -1,8 +1,12 @@
 """A Custom aiohttp http client"""
 
-from typing import Optional, Any
 import aiohttp
+import logging
+from typing import Optional, Any
 from github_users.settings import settings
+
+
+logger = logging.getLogger(__name__)
 
 
 class AuthorizationError(Exception):
@@ -48,6 +52,12 @@ class SingletonAiohttp:
         ) as response:
             if response.status == 401:
                 raise AuthorizationError()
+            if response.status == 404:
+                logger.error(f"The resource at url `{url}` is not found")
+                return {}
+            if response.status == 409:
+                logger.error(f"Git Repository at `{url}` is empty.")
+                return {}
             if response.status != 200:
                 raise Exception(
                     f"Error when talking to Github: {str(await response.text())}"
