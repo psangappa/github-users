@@ -21,8 +21,16 @@ class Settings(BaseSettings):
     host: str = Field("localhost", description="Bind socket to this host.")
     port: int = Field(8000, description="Bind to a socket with this port.")
 
-    name: str = Field(
-        "Github User Service", description="Name of the service."
+    name: str = Field("Github-User-Service", description="Name of the service.")
+
+    github_api_url: str = Field(
+        "https://api.github.com", description="URL to github API"
+    )
+
+    github_token: str = Field(
+        "",
+        description="The user token you have generated that can be used to "
+        "access the GitHub API",
     )
 
     class Config:

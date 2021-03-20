@@ -20,6 +20,12 @@ make
 
 ### Starting the service
 
+Before starting the server, you might have to set the `GITHUB_TOKEN`.
+
+```shell script
+export GITHUB_TOKEN=GithubPersonalAccessToken
+```
+
 To start the service, run:
 ```shell script
 env/bin/start_api
