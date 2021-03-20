@@ -3,6 +3,7 @@ import uvicorn
 from github_users.api.handlers.users import user_router
 from github_users.settings import settings
 from github_users import __version__
+from github_users.api.async_http_client import SingletonAiohttp
 
 
 class UserService(FastAPI):
@@ -29,6 +30,21 @@ class UserService(FastAPI):
 
 
 app = UserService(title=settings.name, version=__version__)
+
+
+@app.on_event("startup")
+async def on_start_up() -> None:
+    """
+    A callback method before starting the application.
+    Get async http client session.
+    """
+    SingletonAiohttp.get_aiohttp_client()
+
+
+@app.on_event("shutdown")
+async def on_shutdown() -> None:
+    """A callback method before shutting down the application."""
+    await SingletonAiohttp.close_aiohttp_client()
 
 
 def start_api() -> None:
