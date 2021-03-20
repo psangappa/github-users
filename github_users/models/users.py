@@ -27,6 +27,14 @@ class PublicRepository(BaseModel):
     Public repositories of the user.
     """
 
+    def dict(self, **kwargs):
+        """
+        fields which are equal to None should be excluded.
+        In our case `latest_commit`.
+        """
+        kwargs["exclude_none"] = True
+        return super().dict(**kwargs)
+
     repository_name: str = Field(description="The name of the repository.")
     repository_id: str = Field(description="The ID of the repository.")
     created_at: datetime = Field(
@@ -57,7 +65,7 @@ class User(BaseModel):
 
 class Users(BaseModel):
     """
-    List of users that was requesteg statusgit statusd for.
+    List of users that was requested for.
     """
 
     users: List[User] = Field(
