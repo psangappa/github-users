@@ -20,7 +20,10 @@ make
 
 ### Starting the service
 
-Before starting the server, you might have to set the `GITHUB_TOKEN`.
+In order to start the server, you should set the `GITHUB_TOKEN` to your
+personal access token. 
+
+Checkout [here](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) on how to create your personal access token.
 
 ```shell script
 export GITHUB_TOKEN=GithubPersonalAccessToken
@@ -30,6 +33,17 @@ To start the service, run:
 ```shell script
 env/bin/start_api
 ```
+
+### Testing
+
+The **tests** live in the `tests/` directory, which mirrors the structure of the `github_users/` directory.
+
+To run the tests of the project run:
+```shell script
+make test
+```
+
+Again, you might need to set the `GITHUB_TOKEN` to run integration tests.
 
 
 ### API documentation
