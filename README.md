@@ -1,6 +1,6 @@
 # Github Users
 
-This application build on top of FastAPI and aiohttp to connect to GitHub API
+This application is built on top of FastAPI and aiohttp to connect to GitHub API
 at https://developer.github.com/v3/, that makes asynchronous calls to github's
 API concurrently to get users info.
 
@@ -53,4 +53,6 @@ To run the tests of the project run:
 ```shell script
 make test
 ```
+**A coverage is displayed at the end of the test execution.**
+
 Again, you might need to set the `GITHUB_TOKEN` to run integration tests.

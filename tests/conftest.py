@@ -7,6 +7,11 @@ from github_users.settings import Settings
 
 
 @pytest.fixture
+def users():
+    return "mojombo,defunkt"
+
+
+@pytest.fixture
 def settings():
     return Settings(name="IntegrationTest")
 

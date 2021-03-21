@@ -1,5 +1,4 @@
-def test_get_users(test_client):
-    users = "mojombo,defunkt"
+def test_get_users(test_client, users):
     response = test_client.get(f"/api/v1/users?usernames={users}")
     assert response.status_code == 200
     result = response.json()
