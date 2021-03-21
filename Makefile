@@ -29,7 +29,7 @@ test:
 	${VIRTUALENV_DIR}/bin/pytest ${TEST_DIR} --cov ${SRC_DIR} --cov-report=xml\:coverage.xml
 
 clean:
-	rm -f .coverage
+	rm -f .coverage coverage.xml
 	find . -name '*.pyc' -exec rm -f {} \;
 	find . -name '*.pyo' -exec rm -f {} \;
 	find . -depth -name '__pycache__' -exec rm -rf {} \;

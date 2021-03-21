@@ -2,7 +2,8 @@
 
 import aiohttp
 import logging
-from typing import Optional, Any
+from typing import Optional
+from typing import Any
 from github_users.settings import settings
 
 

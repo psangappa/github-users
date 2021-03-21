@@ -11,7 +11,7 @@ from typing import List
 
 class LatestCommit(BaseModel):
     """
-    Included in the public repository only when an additional
+    Included in the user's public repository only when an additional
     `include=commit_latest` query parameter is provided.
     """
 
@@ -69,7 +69,7 @@ class Users(BaseModel):
     """
 
     size: int = Field(description="Total number of users.")
-    missing: int = Field(description="Total number of users missing.")
+    missing: int = Field(description="Total number of missing users.")
     users: List[User] = Field(
         description="List of users requested for.", default=[]
     )

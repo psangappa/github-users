@@ -1,5 +1,5 @@
 """
-The user manager.
+The user manager. Contains core logic.
 """
 
 import asyncio

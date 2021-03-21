@@ -15,7 +15,7 @@ user_router = APIRouter()
 
 
 class IncludeEnum(str, Enum):
-    """Choices"""
+    """Choices of `include` param"""
 
     commit_latest = "commit_latest"
 
@@ -34,7 +34,7 @@ async def get_users(
     GET /api/v1/users?usernames=comma,separated,usernames&include=commit_latest
 
     - statuscode 200: in case of success
-    - statuscode 401: in case of access errors
+    - statuscode 401: in case of authentication errors
     - statuscode 422: in case of invalid input model
     - statuscode 500: in case of an internal error
     ```
@@ -48,7 +48,7 @@ async def get_users(
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Authentication error: you might want to set the "
-            "GITHUB_TOKEN with a Personal access token",
+            "GITHUB_TOKEN with a Personal access token.",
         )
     except Exception as e:
         logger.error(e, exc_info=True)
